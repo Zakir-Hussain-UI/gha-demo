@@ -6,9 +6,9 @@ jobs:
     steps:
       - name: First Step
         run: echo "First Github Actions"
-  Test : 
+  Test: 
     runs-on: ubuntu-latest
-    needs : Build
+    needs: Build
     steps:
       - name: Second step
-      run: echo " Second Step"
+        run: echo " Second Step"
