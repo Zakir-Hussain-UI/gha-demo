@@ -21,4 +21,4 @@ jobs:
     needs: Build
     steps:
       - name: Second step
-        run: echo "${{github.actor}}
+        run: echo "$GITHUB.SHA"
