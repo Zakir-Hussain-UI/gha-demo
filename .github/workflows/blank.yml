@@ -17,6 +17,7 @@ jobs:
       version: ${{steps.step1.outputs.version}}
     steps:
       - name: First Step
+        if: "${{inputs.environment == 'PROD'}}"
         id: step1
         run: |
           echo "First Github Actions ${{inputs.environment}}"
