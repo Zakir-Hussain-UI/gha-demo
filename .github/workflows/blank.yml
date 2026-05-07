@@ -13,12 +13,17 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{steps.step1.outputs.version}}
     steps:
       - name: First Step
-        run: echo "First Github Actions ${{inputs.environment}}"
+        id: step1
+        run: |
+          echo "First Github Actions ${{inputs.environment}}"
+          echo "version=0.0.1" >> $GITHUB.OUTPUT
   Test: 
     runs-on: ubuntu-latest
     needs: Build
     steps:
       - name: Second step
-        run: echo "$GITHUB.SHA"
+        run: echo "${{needs.Build.outputs.version}}"
